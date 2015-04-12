@@ -73,3 +73,9 @@ def knapsack(request):
                      'my_data': 'my_data',
                      })
                  )
+
+def load_data():
+    """ Loads the data from asterank and """
+
+
+
