@@ -2,11 +2,12 @@
 
 {% block content %}
 
-<h2>{{ title }}.</h2>
+<h2>What asteroid to mine?</h2>
 <h3>{{ message }}</h3>
 
+<p>Say we have two asteroids the same distance away, each with different resources (say one is worth more).  We obviously pick the asteroid worth more.</p>
 
-Hello this is the Knapsack problem!
+<p>The problem gets more difficult with hundreds of asteroids with varying distances and values.  If we know how far we can travel, this computes the asteroids we should mine.</p>
 
 <body>
     <form action='' method='post'>
@@ -15,6 +16,15 @@ Hello this is the Knapsack problem!
     <input id="my_input" type="integer" name="my_input">
         <input type="submit" value="Calculate" class="btn btn-lrg btn-danger"/>
     </form>
+
+        <br>
+        <p>Asteroid Name, Distance, Value ($)</p>
+        {% for b in bagged %}
+            {{ b }}
+        {% endfor %}
+
+
+
 </body>
 
 {% endblock %}
