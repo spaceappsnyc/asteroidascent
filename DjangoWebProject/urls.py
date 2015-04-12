@@ -11,17 +11,9 @@ from app.forms import BootstrapAuthenticationForm
 # from django.contrib import admin
 # admin.autodiscover()
 
-'''
-                    <li><a href="{% url 'home' %}">Home</a></li>
-                    <li><a href="{% url 'asteroid_data' %}">Asteroid Data</a></li>
-                    <li><a href="{% url 'nasa_arm' %}">Nasa ARM</a></li>
-                    <li><a href="{% url 'educate' %}">Educate</a></li>
-                    <li><a href="{% url 'knapsack' %}">Mining</a></li>
-'''
-
 urlpatterns = patterns('',
     # Examples:
-    url(r'^$', 'app.views.home', name='home'),
+    url(r'^$', 'app.views.knapsack', name='knapsack'),
     url(r'^contact$', 'app.views.contact', name='contact'),
     url(r'^about', 'app.views.about', name='about'),
     url(r'^asteroid_data$', 'app.views.asteroid_data', name='asteroid_data'),
