@@ -2,75 +2,26 @@
 
 {% block content %}
 
+<h2>What asteroid to mine?</h2>
+<h3>{{ message }}</h3>
 
+<p>Say we have two asteroids the same distance away, each with different resources (say one is worth more).  We obviously pick the asteroid worth more.</p>
 
-<style>
-body {
-    background-image: url("http://cdn.wall-pix.net/albums/art-space/00030109.jpg");
-    background-color: #cccccc;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
-a:hover   {color:none; background-color:transparent; text-decoration:none; opacity:0;}
-</style>
-<div class="page-header">
-<center>
-<font-family = "Palatino">
-  <h1><font color="white">Asteroid Ascent</h1>
-  <h3>NASA Space Apps Challenge</font> </h3>
-  </font>
- </center>
-</div><span>
- <a href="#">
-  <img src="http://www.viralnovelty.net/wp-content/uploads/2014/09/16.jpg" style="width:300px;height:100px;border:0">
-</a>
- <a href="#"><img src="http://www.nasa.gov/sites/default/files/thumbnails/image/hs-2015-02-a-hires_jpg.jpg"style="width:300px;height:100px;border:0">
-</a>
-<a href="#"><img src="http://photojournal.jpl.nasa.gov/jpeg/PIA17241.jpg"style="width:300px;height:100px;border:0">
-</a>
- </span>
-  </div>
-</nav>
-</head>
+<p>The problem gets more difficult with hundreds of asteroids with varying distances and values.  If we know how far we can travel, we can compute the asteroids we should mine (based on the Knapsack Problem).</p>
+
 <body>
-<center>
-  <button type="button" class="btn btn-default">Start</button>
- </center>
-</body>
+    <form action='' method='post'>
+    {% csrf_token %}
+    <label for="my_input">Distance: </label>
+    <input id="my_input" type="integer" name="my_input">
+        <input type="submit" value="Calculate" class="btn btn-lrg btn-danger"/>
+    </form>
 
+        <br>
+        <p>Asteroid Name, Distance, Value ($)</p>
+        {% for b in bagged %}
+            {{ b }}
+        {% endfor %}
 
-<!--
-<div class="jumbotron">
-    <h1>Django</h1>
-    <p class="lead">Django is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://www.djangoproject.com/" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
-</div>
-
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            Django gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://www.djangobook.com/en/2.0/index.html">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>The Python Package Index is a repository of software for the Python programming language.</p>
-        <p><a class="btn btn-default" href="https://pypi.python.org/pypi">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Python Tools for Visual Studio</h2>
-        <p>
-            PTVS is a free, open source plugin that turns Visual Studio into a Python IDE
-            with support for editing, browsing, IntelliSense, Azure remote debugging,
-            profiling and more.
-        </p>
-        <p><a class="btn btn-default" href="http://pytools.codeplex.com">Learn more &raquo;</a></p>
-    </div>
-</div>
--->
 
 {% endblock %}
