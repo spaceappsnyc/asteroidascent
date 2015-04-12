@@ -6,7 +6,7 @@ from django.shortcuts import render
 from django.http import HttpRequest
 from django.template import RequestContext
 from django import forms
-from .forms import CostInput
+from .forms import MyInput
 from datetime import datetime
 
 def home(request):
@@ -54,21 +54,22 @@ def about(request):
 def knapsack(request):
     """Renders the knapsack game page."""
 
-    cost_form = CostInput(request.GET or None)  # None means not entered
-    if cost_form.is_valid():
-        cost = cost_form.cleaned_data['cost']
-        print cost
+    if request.method == 'POST':
+        my_form = MyInput(request.POST or None)  # None means not entered
+
+        if my_form.is_valid():
+            my_data = my_form.cleaned_data['my_input']
+            print my_data
+            #print my_form
+    else:
+        form = MyInput()
 
     return render(request, 'app/knapsack.html',
 
                   context_instance = RequestContext(request,
                     {
                      'title':'Knapsack Problem',
-                     'cost':'cost',
-                     'cost_form': 'cost_form'
+                     'my_form': 'my_form',
+                     'my_data': 'my_data',
                      })
                  )
-    #return render_to_response("knapsack.html",
-    #                          locals(),
-    #                          context_instance=RequestContext(request)
-    #                          )

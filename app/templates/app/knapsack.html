@@ -9,10 +9,10 @@
 Hello this is the Knapsack problem!
 
 <body>
-    <form action='' method='get'>
-    <!-- {{ date_form }} -->
-        <h5>Enter $: </h5>
-        {{ cost_form.as_p }}
+    <form action='' method='post'>
+    {% csrf_token %}
+    <label for="my_input">Distance: </label>
+    <input id="my_input" type="integer" name="my_input">
         <input type="submit" value="Calculate" class="btn btn-lrg btn-danger"/>
     </form>
 </body>
