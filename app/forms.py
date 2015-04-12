@@ -16,3 +16,8 @@ class BootstrapAuthenticationForm(AuthenticationForm):
                                widget=forms.PasswordInput({
                                    'class': 'form-control',
                                    'placeholder':'Password'}))
+
+
+class CostInput(forms.Form):
+    """ Enter cost to be calculated """
+    cost = forms.IntegerField(min_value=0, widget=forms.TextInput())

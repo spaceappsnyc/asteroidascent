@@ -5,6 +5,8 @@ Definition of views.
 from django.shortcuts import render
 from django.http import HttpRequest
 from django.template import RequestContext
+from django import forms
+from .forms import CostInput
 from datetime import datetime
 
 def home(request):
@@ -47,3 +49,26 @@ def about(request):
             'year':datetime.now().year,
         })
     )
+
+# knapsack
+def knapsack(request):
+    """Renders the knapsack game page."""
+
+    cost_form = CostInput(request.GET or None)  # None means not entered
+    if cost_form.is_valid():
+        cost = cost_form.cleaned_data['cost']
+        print cost
+
+    return render(request, 'app/knapsack.html',
+
+                  context_instance = RequestContext(request,
+                    {
+                     'title':'Knapsack Problem',
+                     'cost':'cost',
+                     'cost_form': 'cost_form'
+                     })
+                 )
+    #return render_to_response("knapsack.html",
+    #                          locals(),
+    #                          context_instance=RequestContext(request)
+    #                          )
