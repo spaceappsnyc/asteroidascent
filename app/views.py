@@ -51,6 +51,50 @@ def about(request):
         })
     )
 
+def asteroid_data(request):
+    """Renders the asteroid data page."""
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'app/asteroid_data.html',
+        context_instance = RequestContext(request,
+        {
+            'title':'Asteroid Data Page',
+            'year':datetime.now().year,
+        })
+    )
+
+
+def nasa_arm(request):
+    """Renders the nasa_arm page."""
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'app/nasa_arm.html',
+        context_instance = RequestContext(request,
+        {
+            'title':'Nasa Arm Page',
+            'year':datetime.now().year,
+        })
+    )
+
+
+def educate(request):
+    """Renders the nasa_arm page."""
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'app/nasa_arm.html',
+        context_instance = RequestContext(request,
+        {
+            'title':'Educate Page',
+            'year':datetime.now().year,
+        })
+    )
+
+
+
+
 # knapsack
 def knapsack(request):
     """Renders the knapsack game page."""

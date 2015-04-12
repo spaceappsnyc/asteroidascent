@@ -24,8 +24,10 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a href="{% url 'home' %}">Home</a></li>
-                    <li><a href="{% url 'about' %}">About</a></li>
-                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                    <li><a href="{% url 'asteroid_data' %}">Asteroid Data</a></li>
+                    <li><a href="{% url 'nasa_arm' %}">Nasa ARM</a></li>
+                    <li><a href="{% url 'educate' %}">Educate</a></li>
+                    <li><a href="{% url 'knapsack' %}">Mining</a></li>
                 </ul>
                 {% include 'app/loginpartial.html' %}
             </div>
